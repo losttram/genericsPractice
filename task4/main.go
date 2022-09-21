@@ -32,7 +32,7 @@ func ToStringsB(s []B) []string {
 	return r
 }
 
-func ToStrings[stringer interface{ String() string }](s []stringer) []string {
+func ToStrings[T fmt.Stringer](s []T) []string {
 	r := make([]string, len(s))
 	for i, v := range s {
 		r[i] = v.String()
